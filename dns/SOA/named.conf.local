@@ -1,0 +1,4 @@
+zone "webtest.local" IN  {
+    type master;
+    file "/etc/bind/db.wt1.ephec-ti.be";
+};
