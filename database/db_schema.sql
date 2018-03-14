@@ -3,37 +3,49 @@ use WoodyToys;
 
 CREATE TABLE Client
 (
-id_Client char(5),
-prenom varchar(25),
-nom varchar(25),
-adresse TEXT,
-compte FLOAT(9,2),
-PRIMARY KEY (id_Client)
+id_Client char(4) not null,
+NOM  varchar(12) not null,
+ADRESSE varchar(20) not null,
+LOCALITE varchar(12) not null,
+COMPTE decimal(9,2) not null,
+primary key (id_Client)
 ) COMMENT='this is my client table';
 
 CREATE TABLE Produit
 (
-id_Product char(5),
-name varchar(25),
-description TEXT,
-PRIMARY KEY (id_Product)
+id_Product  char(5) not null,
+LIBELLE varchar(20) not null,
+PRIX decimal(5,0) not null,
+QSTOCK decimal(6,0) not null,
+primary key (id_Product)
 ) COMMENT='this is my Produit table';
 
 CREATE TABLE Commande
 (
-id_Commande char(5),
-id_Product char(5),
-quantite INTEGER,
-PRIMARY KEY (id_Commande, id_Product),
-FOREIGN KEY (id_Product) REFERENCES Produit(id_Product)
+id_Commande char(5) not null,
+id_Client char(4) not null,
+DATECOM datetime not null,
+PRIMARY KEY (id_Commande, id_Client),
+FOREIGN KEY (id_Client) REFERENCES Client(id_Client)
 ) COMMENT='this is my Commande table';
 
-CREATE TABLE Facture
+create table Detail
 (
-id_Facture char(5),
-id_Client char(5),
-id_Commande char(5),
-PRIMARY KEY (id_Facture, id_Client, id_Commande),
-FOREIGN KEY (id_Client) REFERENCES Client(id_Client),
-FOREIGN KEY (id_Commande) REFERENCES Commande(id_Commande)
+id_Commande char(5) not null,
+id_Product char(5) not null,
+quantiteCommande decimal(4,0) not null,
+primary key (id_Commande,id_Product),
+foreign key (id_Commande) references Commande(id_Commande),
+foreign key (id_Product) references Produit(id_Product)
 ) COMMENT='this is my Facture table';
+
+CREATE TABLE employe
+(
+id_Employe char(4) not null,
+nom varchar(25) NOT NULL,
+adresse TEXT NOT NULL,
+localite varchar(12) not null,
+dateEngage DATETIME NOT NULL,
+iswork BIT NOT NULL DEFAULT 1,
+PRIMARY KEY (id_Employe)
+) COMMENT='this is my employe table';

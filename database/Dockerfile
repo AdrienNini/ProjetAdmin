@@ -13,7 +13,7 @@ RUN apt-get install -y \
 # RUN service mysql start #Launch in init_db 
 
 # Copy the database schema to the /data directory
-ADD files/run_db files/init_db files/db_schema.sql /tmp/
+ADD files/run_db files/init_db files/db_schema.sql files/db_basisinfo.sql /tmp/
 
 # init_db will create the default
 # database from db_schema.sql, then
