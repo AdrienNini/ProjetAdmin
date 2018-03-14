@@ -5,7 +5,10 @@ RUN apt-get update && apt-get install -y bind9
 WORKDIR /etc/bind
 
 COPY ./named.conf ./named.conf
-COPY ./db.webtest.local ./db.webtest.local
+COPY ./named.conf.options ./named.conf.options
+COPY ./named.conf.local ./named.conf.local
+COPY ./db.wt1.ephec-ti.be ./db.wt1.ephec-ti.be
+COPY ./resolv.conf /etc/resolv.conf
 
 EXPOSE 53 53/udp
 CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]

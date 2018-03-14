@@ -1,0 +1,16 @@
+options {
+
+    directory "/var/cache/bind";
+
+    listen-on port 53 { 127.0.0.1; };
+    listen-on-v6 { any; };
+
+    allow-transfer {
+        none;
+    };
+    
+    pid-file "/var/run/named/named.pid";
+    
+    recursion no;
+
+};
