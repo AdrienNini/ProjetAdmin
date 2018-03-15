@@ -2,7 +2,7 @@
 $ORIGIN wt1.ephec-ti.be.
 $TTL	86400
 @	IN	SOA	ns.wt1.ephec-ti.be admin.wt1.ephec-ti.be (
-		 2018031502		; Serial
+		 2018031503		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
