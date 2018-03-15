@@ -2,19 +2,17 @@ options {
 
     directory "/var/cache/bind";
 
-    listen-on port 53 { 127.0.0.1; };
-    listen-on-v6 { any; };
-
+    recursion yes;
+    
     forwarders {
         8.8.8.8;
-        8.8.4.4;
+        8.8.8.4;
     };
+    forward only;
 
-    allow-transfer {
-        none;
-    };
-    
-    pid-file "/var/run/named/named.pid";
-    
+    dnssec-validation auto;
+
+    auth-nxdomain no;
+    listen-on-v6 { any; };
 
 };
