@@ -11,5 +11,7 @@ COPY ./named.conf.default-zones ./named.conf.default-zones
 COPY ./db.wt1.ephec-ti.be ./db.wt1.ephec-ti.be
 COPY ./db.internal.wt1.ephec-ti.be ./db.internal.wt1.ephec-ti.be
 
+VOLUME /var/log/named/
+
 EXPOSE 53 53/udp
 CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
