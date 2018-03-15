@@ -13,6 +13,7 @@ COPY wt1.ephec-ti.be /etc/nginx/sites-available/
 COPY b2b.wt1.ephec-ti.be /etc/nginx/sites-available/
 COPY internal.wt1.ephec-ti.be /etc/nginx/sites-available/
 
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/wt1.ephec-ti.be /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/b2b.wt1.ephec-ti.be /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/internal.wt1.ephec-ti.be /etc/nginx/sites-enabled/
