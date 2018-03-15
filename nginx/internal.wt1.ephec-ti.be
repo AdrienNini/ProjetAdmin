@@ -2,11 +2,11 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	root /var/www/html/;
+	root /var/www/internal/html/;
 
 	index index.html index.htm index.php;
 
-	server_name example.com www.example.com;
+	server_name internal.wt1.ephec-ti.be www.internal.ephec-ti.be;
 
 	charset utf-8;
 
