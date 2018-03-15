@@ -1,5 +1,5 @@
-Récupérer l'image : docker pull sfauconnier/nginx
+Récupérer l'image : docker pull adrien97nini/wt_web:latest
 
-Lancer l'image : docker run -d -v /webroot:/var/www/html -p 80:80 --name nginx nginxphp
+Lancer l'image : docker run -d -v /home/dev/www:/var/www/html -p 80:80 --name web adrien97nini/wt_web:latest
 
-Placer les fichiers du sites web dans le dossier /var/www/html de la machine hôte
+Placer les fichiers du sites web dans le dossier /home/dev/www de la machine hôte
