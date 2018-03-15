@@ -9,7 +9,7 @@ view external {
 acl internals {
     54.37.65.117;
     54.37.65.136;
-}
+};
 
 view internal {
     match-clients { internals; };
@@ -17,8 +17,7 @@ view internal {
     zone "wt1.ephec-ti.be" IN  {
         type master;
         file "/etc/bind/db.internal.wt1.ephec-ti.be";
-
     };
-}
+};
 
 
