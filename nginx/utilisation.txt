@@ -1,5 +1,5 @@
 Récupérer l'image : docker pull adrien97nini/wt_web:latest
 
-Lancer l'image : docker run -d -v /home/dev/www:/var/www/html -p 80:80 --name web adrien97nini/wt_web:latest
+Lancer l'image : docker run -d -v /home/dev/www:/var/www -p 80:80 --name web adrien97nini/wt_web:latest
 
 Placer les fichiers du sites web dans le dossier /home/dev/www de la machine hôte
