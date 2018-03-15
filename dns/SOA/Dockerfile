@@ -10,7 +10,6 @@ COPY ./named.conf.local ./named.conf.local
 COPY ./named.conf.default-zones ./named.conf.default-zones
 COPY ./db.wt1.ephec-ti.be ./db.wt1.ephec-ti.be
 COPY ./db.internal.wt1.ephec-ti.be ./db.internal.wt1.ephec-ti.be
-COPY ./resolv.conf /etc/resolv.conf
 
 EXPOSE 53 53/udp
 CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
