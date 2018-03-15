@@ -17,3 +17,4 @@ ns 				IN	A				54.37.65.117
 ; web services
 serverWeb		IN	A			54.37.65.117
 www				IN	CNAME		serverWeb
+b2b				IN	CNAME		serverWeb
