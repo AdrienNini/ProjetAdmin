@@ -1,0 +1,5 @@
+Récupérer l'image : docker pull sfauconnier/nginx
+
+Lancer l'image : docker run -d -v /webroot:/var/www/html -p 80:80 --name nginx nginxphp
+
+Placer les fichiers du sites web dans le dossier /var/www/html de la machine hôte
