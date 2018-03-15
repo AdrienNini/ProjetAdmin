@@ -26,4 +26,6 @@ RUN /tmp/init_db
 # it is it is seeded with default_mysql_db.tar.gz before
 # the mysql is fired up
 
+EXPOSE 3306
+
 ENTRYPOINT "/tmp/run_db"
