@@ -1,4 +1,4 @@
-﻿#Download base image ubuntu 16.04
+#Download base image ubuntu 16.04
 FROM ubuntu:16.04
 
 # Update Ubuntu Software repository and musql-server
@@ -28,5 +28,5 @@ RUN /tmp/init_db
 # the mysql is fired up
 
 EXPOSE 3306
-
+ 
 ENTRYPOINT "/tmp/run_db"

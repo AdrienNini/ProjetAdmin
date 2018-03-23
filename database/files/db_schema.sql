@@ -1,4 +1,4 @@
-﻿create database WoodyToys;
+create database WoodyToys;
 use WoodyToys;
 
 CREATE TABLE Client
