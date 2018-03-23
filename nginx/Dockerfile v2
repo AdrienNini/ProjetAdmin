@@ -25,4 +25,4 @@ RUN ln -s /etc/nginx/sites-available/intranet.wt1.ephec-ti.be /etc/nginx/sites-e
 RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/7.0/fpm/php.ini
 
 EXPOSE 80 443
-CMD service php7.0-fpm start && nginx -g "daemon off;"
+CMD service php7.0-fpm start && nginx -g "daemon off;" && certbot certonly --webroot --agree-tos --no-eff-email --email s.fauconnier@students.ephec.be -w /etc/nginx/sites-available/ -d wt1.ephec-ti.be -d intranet.wt1.ephec-ti.be -d b2b.wt1.ephec-ti.be
