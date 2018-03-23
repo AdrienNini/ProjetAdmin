@@ -49,3 +49,10 @@ dateEngage DATETIME NOT NULL,
 iswork BIT NOT NULL DEFAULT 1,
 PRIMARY KEY (id_Employe)
 ) COMMENT='this is my employe table';
+
+CREATE user 'test'@172.17.0.2 identified by 'test';
+CREATE user 'moi'@'localhost' identified by 'moi';
+grant all privileges on *.* TO 'test'@172.17.0.2;
+grant all privileges on *.* TO 'moi'@'localhost';
+
+flush privileges;
