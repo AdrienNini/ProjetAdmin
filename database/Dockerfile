@@ -1,7 +1,7 @@
 ﻿#Download base image ubuntu 16.04
 FROM ubuntu:16.04
 
-# Update Ubuntu Software repository and musql-server
+# Update Ubuntu Software repository and mysql-server
 RUN apt-get update
 
 RUN ["/bin/bash", "-c", "debconf-set-selections <<< 'mysql-server mysql-server/root_password password your_password'"]
