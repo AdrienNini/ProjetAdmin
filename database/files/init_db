@@ -1,3 +1,4 @@
+﻿#!/bin/bash
 
 # Initialize MySQL database.
 # ADD this file into the container via Dockerfile.
@@ -6,10 +7,7 @@
 # Again, make sure MySQL is persisting data outside the container for this to have any effect.
 
 service mysql start
-mysql --password=your_password
-
-# Start the MySQL daemon in the background.
-/usr/sbin/mysqld
+mysql -u root --password=your_password
 
 # create the default database from the ADDed file.
 mysql --password=your_password < /tmp/db_schema.sql
