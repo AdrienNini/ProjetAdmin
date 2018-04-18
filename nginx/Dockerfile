@@ -8,10 +8,11 @@ RUN apt-get update \
     && apt-get install -y php-fpm php7.0-mysql \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && apt-get install software-properties-common \
+    && apt-get update \
+    && apt-get install -y software-properties-common \
     && add-apt-repository ppa:certbot/certbot \
     && apt-get update \
-    && apt-get install certbot
+    && apt-get install -y certbot
 
 COPY default /etc/nginx/sites-available/
 COPY wt1.ephec-ti.be /etc/nginx/sites-available/
