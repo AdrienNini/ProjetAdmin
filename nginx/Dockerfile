@@ -8,13 +8,10 @@ RUN apt-get update \
     && apt-get install -y php-fpm php7.0-mysql \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && apt-get update \
-    && apt-get install -y software-properties-common \
+    && apt-get install software-properties-common \
     && add-apt-repository ppa:certbot/certbot \
     && apt-get update \
-    && apt-get install -y python-certbot-nginx 
-    
-
+    && apt-get install certbot
 
 COPY default /etc/nginx/sites-available/
 COPY wt1.ephec-ti.be /etc/nginx/sites-available/
@@ -27,5 +24,13 @@ RUN ln -s /etc/nginx/sites-available/intranet.wt1.ephec-ti.be /etc/nginx/sites-e
 
 RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/7.0/fpm/php.ini
 
+
+COPY letsencrypt.conf /etc/nginx/snippets/
+COPY ssl.conf /etc/nginx/snippets/
+RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
+
+RUN certbot certonly --webroot --agree-tos --no-eff-email --email simon.fauconnier@gmail.com -w /var/www/letsencrypt -d www.wt1.ephec-ti.be -d wt1.ephec-ti.be
+
 EXPOSE 80 443
-CMD service php7.0-fpm start && nginx -g "daemon off;" && certbot certonly --webroot --agree-tos --no-eff-email --email s.fauconnier@students.ephec.be -w /var/www/ -d wt1.ephec-ti.be -d intranet.wt1.ephec-ti.be -d b2b.wt1.ephec-ti.be
+CMD service php7.0-fpm start && nginx -g "daemon off;"
+
