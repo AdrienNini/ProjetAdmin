@@ -1,4 +1,4 @@
-﻿# start db
+# start db
 
 set -e
 set -x
