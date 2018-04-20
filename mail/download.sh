@@ -2,6 +2,7 @@
 
 curl -o setup.sh https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/dev/mail/setup.sh; chmod a+x ./setup.sh
 curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/dev/mail/docker-compose.yml;
+curl -o .env https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/dev/mail/.env;
 mkdir config;
 mkdir config/opendkim;
 mkdir config/opendkim/keys;
