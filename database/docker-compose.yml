@@ -3,8 +3,19 @@ version : '2.0'
 
 services :
 
-  dbWoddy:
-    image: dbmysql:latest
+  webWoody:
+    image: wt_web:latest
+    networks:
+      woody_net:
+        ipv4_address: 172.18.0.23
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - data-volume: "/home/dev/www:/var/www"
+
+  dbWoody:
+    image: wt_db:latest
     restart: always
     networks:
       woody_net:
@@ -21,5 +32,4 @@ networks:
     ipam:
       driver: default
       config:
-      -
-        subnet: 172.18.0.0/16
+      - subnet: 172.18.0.0/16
