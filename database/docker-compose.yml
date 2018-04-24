@@ -1,21 +1,21 @@
 # Use root/example as user/password credentials
-version : '2.0'
+version : '2'
 
 services :
 
   webWoody:
-    image: wt_web:latest
+    image: adrien97nini/wt_web:latest
     networks:
       woody_net:
         ipv4_address: 172.18.0.23
-      ports:
-        - "80:80"
-        - "443:443"
-      volumes:
-        - data-volume: "/home/dev/www:/var/www"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      -  /home/mitraillet/www:/var/www
 
-  dbWoody:
-    image: wt_db:latest
+  dbWoddy:
+    image: adrien97nini/wt_db:test
     restart: always
     networks:
       woody_net:
@@ -32,4 +32,4 @@ networks:
     ipam:
       driver: default
       config:
-      - subnet: 172.18.0.0/16
+        - subnet: 172.18.0.0/16
