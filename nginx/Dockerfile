@@ -18,18 +18,17 @@ COPY default /etc/nginx/sites-available/
 COPY wt1.ephec-ti.be /etc/nginx/sites-available/
 COPY b2b.wt1.ephec-ti.be /etc/nginx/sites-available/
 COPY intranet.wt1.ephec-ti.be /etc/nginx/sites-available/
+COPY letsencrypt.conf /etc/nginx/snippets/
+COPY ssl.conf /etc/nginx/snippets/
 
 RUN ln -s /etc/nginx/sites-available/wt1.ephec-ti.be /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/b2b.wt1.ephec-ti.be /etc/nginx/sites-enabled/
 RUN ln -s /etc/nginx/sites-available/intranet.wt1.ephec-ti.be /etc/nginx/sites-enabled/
 
 RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/7.0/fpm/php.ini
-
-
-COPY letsencrypt.conf /etc/nginx/snippets/
-COPY ssl.conf /etc/nginx/snippets/
 RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
 
 EXPOSE 80 443
+
 CMD service php7.0-fpm start && nginx -g "daemon off;"
 
