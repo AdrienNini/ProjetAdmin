@@ -1,12 +1,12 @@
 
 $ORIGIN wt1.ephec-ti.be.
-$TTL	86400
-@	IN	SOA	ns.wt1.ephec-ti.be admin.wt1.ephec-ti.be (
-		 	2018042701	; Serial
-			 604800		; Refresh
-			  86400		; Retry
+$TTL	43200
+@	IN	SOA	ns.wt1.ephec-ti.be. admin.wt1.ephec-ti.be. (
+		 	2018042715	; Serial
+			 43200		; Refresh
+			  7200		; Retry
 			2419200		; Expire
-			  86400 )	; Negative Cache TTL
+			  43200 )	; Negative Cache TTL
 ;
 
 ; name servers - NS record
@@ -20,8 +20,10 @@ ns 				IN	A				54.37.65.117
 ; web services
 serverWeb		IN	A			54.37.65.117
 www				IN	CNAME		serverWeb
+_acme-challenge			1		IN	TXT		"vGHSmZLfN_feiGbIjV02L_Sc1XCNb-JxqdOYyMGIR_4"
+_acme-challenge.www		1		IN	TXT		"rVMMfsMkTXoF5ZWVqsmytu0ZMlKJf0lEgcYfEiz-Mk4"	
 b2b				IN	CNAME		serverWeb
-b2b				IN	TXT 	("97gNOZ66fWOAkriFxX8ZrdXKeVq4VLfT9GE1wupS4XE")
+_acme-challenge.b2b		1		IN	TXT 	"97gNOZ66fWOAkriFxX8ZrdXKeVq4VLfT9GE1wupS4XE"
 
 ; mail services
 mail					IN 	A		54.37.65.136
