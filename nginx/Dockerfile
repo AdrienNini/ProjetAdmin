@@ -18,6 +18,7 @@ COPY default /etc/nginx/sites-available/
 COPY wt1.ephec-ti.be /etc/nginx/sites-available/
 COPY b2b.wt1.ephec-ti.be /etc/nginx/sites-available/
 COPY intranet.wt1.ephec-ti.be /etc/nginx/sites-available/
+
 COPY letsencrypt.conf /etc/nginx/snippets/
 COPY ssl.conf /etc/nginx/snippets/
 
