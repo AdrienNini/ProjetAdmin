@@ -31,5 +31,5 @@ COPY ssl.conf /etc/nginx/snippets/
 RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
 
 EXPOSE 80 443
-CMD service php7.0-fpm start && nginx -g "daemon off;" && certbot certonly --webroot --agree-tos --no-eff-email --email s.fauconnier@students.ephec.be -w /var/www/letsencrypt -d www.wt1.ephec-ti.be -d wt1.ephec-ti.be
+CMD service php7.0-fpm start && nginx -g "daemon off;"
 
