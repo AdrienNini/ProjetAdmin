@@ -2,7 +2,7 @@
 $ORIGIN wt1.ephec-ti.be.
 $TTL	86400
 @	IN	SOA	ns.wt1.ephec-ti.be admin.wt1.ephec-ti.be (
-		 	2018042006	; Serial
+		 	2018042701	; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
@@ -21,6 +21,7 @@ ns 				IN	A				54.37.65.117
 serverWeb		IN	A			54.37.65.117
 www				IN	CNAME		serverWeb
 b2b				IN	CNAME		serverWeb
+b2b				IN	TXT 	("97gNOZ66fWOAkriFxX8ZrdXKeVq4VLfT9GE1wupS4XE")
 
 ; mail services
 mail					IN 	A		54.37.65.136
