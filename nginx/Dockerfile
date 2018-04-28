@@ -25,7 +25,7 @@ COPY letsencrypt.conf /etc/nginx/snippets/
 COPY ssl.conf /etc/nginx/snippets/
 RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
 RUN mkdir -p /etc/letsencrypt/b2b.wt1.ephec-ti.be
-COPY b2b-certificate.cert /etc/letsencrypt/b2b.wt1.ephec-ti.be/
+COPY b2b-certificate.crt /etc/letsencrypt/b2b.wt1.ephec-ti.be/
 COPY b2b-certificate.key /etc/letsencrypt/b2b.wt1.ephec-ti.be/
 
 EXPOSE 80 443
