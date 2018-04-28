@@ -1,4 +1,4 @@
-## http://mydomain.com redirects to https://b2b.wt1.ephec-ti.be
+## http://b2b.wt1.ephec-ti.be redirects to https://b2b.wt1.ephec-ti.be
 server {
 	listen 80;
 	listen [::]:80;
@@ -11,7 +11,7 @@ server {
 	}
 }
 
-## https://mydomain.com redirects to https://www.b2b.wt1.ephec-ti.be
+## https://b2b.wt1.ephec-ti.be redirects to https://www.b2b.wt1.ephec-ti.be
 server {
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
