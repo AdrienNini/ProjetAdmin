@@ -1,29 +1,28 @@
+## http://mydomain.com redirects to https://mydomain.com
 server {
 	listen 80;
 	listen [::]:80;
-	
-	charset utf-8;
+	server_name b2b.wt1.ephec-ti.be;
 
-	root /var/www/b2b/html/;
-
-	index index.html index.htm index.php;
-
-	server_name b2b.wt1.ephec-ti.be www.b2b.ephec-ti.be;
-	
-	ssl_certificate /etc/letsencrypt/b2b.wt1.ephec-ti.be/b2b-certificate.cert;
-        ssl_certificate_key /etc/letsencrypt/b2b.wt1.ephec-ti.be/b2b-certificate.key;
+	include /etc/nginx/snippets/letsencrypt.conf;
 
 	location / {
-		try_files $uri $uri/ =404;
+		return 301 https://b2b.wt1.ephec-ti.be$request_uri;
 	}
+}
 
-	location ~ \.php$ {
-        	include snippets/fastcgi-php.conf;
-        	fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-    	}
+## https://mydomain.com redirects to https://www.mydomain.com
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	server_name b2b.wt1.ephec-ti.be;
 
+	ssl_certificate /etc/letsencrypt/b2b.wt1.ephec-ti.be/b2b-certificate.cert;
+        ssl_certificate_key /etc/letsencrypt/b2b.wt1.ephec-ti.be/b2b-certificate.key;
+	
+	include /etc/nginx/snippets/ssl.conf;
 
-	location ~ /\.ht {
-		deny all;
+	location / {
+		return 301 https://www.b2b.wt1.ephec-ti.be$request_uri;
 	}
 }
