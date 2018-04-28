@@ -24,9 +24,15 @@ RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/7.0/fpm/php.
 COPY letsencrypt.conf /etc/nginx/snippets/
 COPY ssl.conf /etc/nginx/snippets/
 RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
+
 RUN mkdir -p /etc/letsencrypt/b2b.wt1.ephec-ti.be
+RUN mkdir -p /etc/letsencrypt/wt1.ephec-ti.be
+
 COPY b2b-certificate.crt /etc/letsencrypt/b2b.wt1.ephec-ti.be/
 COPY b2b-certificate.key /etc/letsencrypt/b2b.wt1.ephec-ti.be/
+
+COPY wt1-certificate.crt /etc/letsencrypt/wt1.ephec-ti.be/
+COPY wt1-certificate.key /etc/letsencrypt/wt1.ephec-ti.be/
 
 EXPOSE 80 443
 
