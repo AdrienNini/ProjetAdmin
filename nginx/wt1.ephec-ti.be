@@ -1,4 +1,4 @@
-## http://mydomain.com redirects to https://mydomain.com
+## http://wt1.ephec-ti.be redirects to https://wt1.ephec-ti.be
 server {
 	listen 80;
 	listen [::]:80;
@@ -11,15 +11,15 @@ server {
 	}
 }
 
-## https://mydomain.com redirects to https://www.mydomain.com
+## https://wt1.ephec-ti.be redirects to https://www.wt1.ephec-ti.be
 server {
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
 	server_name wt1.ephec-ti.be;
 
-	ssl_certificate /etc/letsencrypt/live/www.wt1.ephec-ti.be/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/www.wt1.ephec-ti.be/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/www.wt1.ephec-ti.be/fullchain.pem;
+	ssl_certificate /etc/letsencrypt/wt1.ephec-ti.be/wt1-certificate.crt;
+	ssl_certificate_key /etc/letsencrypt/wt1.ephec-ti.be/wt1-certificate.key;
+	
 	include /etc/nginx/snippets/ssl.conf;
 
 	location / {
