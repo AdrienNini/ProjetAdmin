@@ -4,8 +4,6 @@ server {
 	listen [::]:80;
 	server_name b2b.wt1.ephec-ti.be;
 
-	include /etc/nginx/snippets/letsencrypt.conf;
-
 	location / {
 		return 301 https://b2b.wt1.ephec-ti.be$request_uri;
 	}
