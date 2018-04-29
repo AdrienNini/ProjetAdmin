@@ -1,5 +1,5 @@
 server {
     listen 80;
-    server_name b2b.wt1.ephec-ti.be www.wt1.ephec-ti.be intranet.wt1.ephec-ti.be;
+    server_name "";
     return 301 https://$host$request_uri;
 }
