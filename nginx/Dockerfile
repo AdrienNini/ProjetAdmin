@@ -21,7 +21,6 @@ RUN ln -s /etc/nginx/sites-available/intranet.wt1.ephec-ti.be /etc/nginx/sites-e
 
 RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/7.0/fpm/php.ini
 
-COPY letsencrypt.conf /etc/nginx/snippets/
 COPY ssl.conf /etc/nginx/snippets/
 RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
 
