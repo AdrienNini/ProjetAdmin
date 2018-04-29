@@ -34,6 +34,8 @@ COPY b2b-certificate.key /etc/letsencrypt/b2b.wt1.ephec-ti.be/
 COPY wt1-certificate.crt /etc/letsencrypt/wt1.ephec-ti.be/
 COPY wt1-certificate.key /etc/letsencrypt/wt1.ephec-ti.be/
 
+COPY ca_bundle.crt /etc/letsencrypt/
+
 EXPOSE 80 443
 
 CMD service php7.0-fpm start && nginx -g "daemon off;"
