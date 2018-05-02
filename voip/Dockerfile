@@ -20,5 +20,5 @@ EXPOSE 16392/udp
 EXPOSE 16393/udp
 EXPOSE 16394/udp
 
-CMD /etc/init.d/asterisk
+CMD ["/usr/sbin/asterisk", "-f"]
 
