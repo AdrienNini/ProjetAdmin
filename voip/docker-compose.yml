@@ -1,9 +1,9 @@
 version : '2'
 
 services :
-
   voip:
     image: adrien97nini/wt_voip:test
+    container-name: voip
     ports:
       - "5060:5060/tcp"
       - "5060:5060/udp"
