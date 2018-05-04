@@ -2,7 +2,7 @@
 $ORIGIN wt1.ephec-ti.be.
 $TTL	43200
 @	IN	SOA	ns.wt1.ephec-ti.be. admin.wt1.ephec-ti.be. (
-		 	2018042715	; Serial
+		 	2018050401	; Serial
 			 43200		; Refresh
 			  7200		; Retry
 			2419200		; Expire
@@ -35,3 +35,8 @@ mail._domainkey			IN	TXT		( "v=DKIM1; h=sha256; k=rsa; "
 	  "CNmZzvD9Sq72S2vt3rUqfq5SahZ3sHGo1+q8ZWfTB4xE/WNOmYavrrwhRo5zuJYnLkGw7voN0ikCPCA+mF53itFjHBefuQh7fZEIK4OYYqzkol2l2sZnzLcQfnxjuHz1yo86hmqwIDAQAB" )  ; ----- DKIM key mail for wt1.ephec-ti.be
 _dmarc			 		IN 	TXT		("v=DMARC1;p=none;sp=reject;pct=10;"
    "adkim=r;aspf=r;fo=1;ri=86400")
+
+; voip service
+_sip._udp		SRV	0	0	5060	sip
+_sip._tcp		SRV 0	0	5060	sip
+sip				IN	A	54.37.65.136  
