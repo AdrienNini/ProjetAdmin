@@ -6,22 +6,8 @@
 # Once built, do e.g. `docker run your_image /path/to/docker-mysql-initialize.sh`
 # Again, make sure MySQL is persisting data outside the container for this to have any effect.
 
-set -e
-set -x
-
 service mysql start
 mysql -u root --password=your_password
-
-# Start the MySQL daemon in the background.
-/usr/sbin/mysqld &
-mysql_pid=$!
-
-until mysqladmin ping >/dev/null 2>&1; do
-  echo -n "."; sleep 0.2
-done
-
-# Permit root login without password from outside container.
-#mysql -e "GRANT ALL ON *.* TO root@'172.17.0.2' IDENTIFIED BY 'your_password' WITH GRANT OPTION"
 
 # create the default database from the ADDed file.
 mysql --password=your_password < /tmp/db_schema.sql
@@ -29,9 +15,6 @@ mysql --password=your_password < /tmp/db_basisinfo.sql
 
 # Tell the MySQL daemon to shutdown.
 mysqladmin --password=your_password shutdown
-
-# Wait for the MySQL daemon to exit.
-#wait $mysql_pid
 
 # create a tar file with the database as it currently exists
 tar czvf default_mysql.tar.gz /var/lib/mysql

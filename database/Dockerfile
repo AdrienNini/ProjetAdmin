@@ -19,7 +19,7 @@ ADD files/run_db files/init_db files/db_schema.sql files/db_basisinfo.sql /tmp/
 # database from db_schema.sql, then
 # stop mysqld, and finally copy the /var/lib/mysql directory
 # to default_mysql_db.tar.gz
-RUN chmod u+x tmp/init_db && chmod u+x tmp/run_db
+RUN chmod u+x /tmp/init_db && chmod u+x /tmp/run_db
 RUN /tmp/init_db
 
 # run_db starts mysqld, but first it checks
@@ -28,5 +28,9 @@ RUN /tmp/init_db
 # the mysql is fired up
 
 EXPOSE 3306
- 
+
+#Pour changer la configuration
+COPY files/mysqld.cnf /etc/mysql/mysql.conf.d/
+
+#We need to keep this
 ENTRYPOINT "/tmp/run_db"
