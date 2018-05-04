@@ -1,4 +1,4 @@
-﻿USE WoodyToys;
+use WoodyToys;
 
 insert into Client values ('B112','HANSENNE'    ,'23, a. Dumont'       ,'Poitiers' ,1250.00);
 insert into Client values ('C123','MERCIER'     ,'25, r. Lemaitre'     ,'Namur'    ,-2300);
