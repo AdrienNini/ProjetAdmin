@@ -3,7 +3,7 @@ version : '2'
 services :
   voip:
     image: adrien97nini/wt_voip:test
-    container-name: voip
+    container_name: voip
     ports:
       - "5060:5060/tcp"
       - "5060:5060/udp"
@@ -24,4 +24,4 @@ services :
       - ./config/sip.conf:/etc/asterisk/sip.conf
       - ./config/users.conf:/etc/asterisk/users.conf
       - ./config/voicemail.conf:/etc/asterisk/voicemail.conf
-      - ./sounds:/var/lib/asterisk/sounds/custom
+      - ./sounds:/var/lib/asterisk/moh

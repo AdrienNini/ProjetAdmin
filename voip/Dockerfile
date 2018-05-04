@@ -10,7 +10,7 @@ RUN sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
 WORKDIR /etc/asterisk
 
 VOLUME /etc/asterisk
-VOLUME /var/lib/asterisk/sounds/custom
+VOLUME /var/lib/asterisk/moh
 
 EXPOSE 5060 5060/udp
 EXPOSE 16384/udp
