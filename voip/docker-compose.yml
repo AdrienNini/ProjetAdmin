@@ -18,3 +18,10 @@ services :
       - "16392:16392/udp"
       - "16393:16393/udp"
       - "16394:16394/udp"
+    volumes:
+      - ./config/extensions.conf:/etc/asterisk/extensions.conf
+      - ./config/logger.conf:/etc/asterisk/logger.conf
+      - ./config/sip.conf:/etc/asterisk/sip.conf
+      - ./config/users.conf:/etc/asterisk/users.conf
+      - ./config/voicemail.conf:/etc/asterisk/voicemail.conf
+      - ./sounds:/var/lib/asterisk/sounds/custom

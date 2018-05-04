@@ -9,11 +9,8 @@ RUN sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
 
 WORKDIR /etc/asterisk
 
-COPY ./config/sip.conf ./sip.conf
-COPY ./config/logger.conf ./logger.conf 
-COPY ./config/extensions.conf ./extensions.conf
-COPY ./config/users.conf ./users.conf
-COPY ./config/voicemail.conf ./voicemail.conf
+VOLUME /etc/asterisk
+VOLUME /var/lib/asterisk/sounds/custom
 
 EXPOSE 5060 5060/udp
 EXPOSE 16384/udp
