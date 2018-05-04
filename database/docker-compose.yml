@@ -13,6 +13,8 @@ services :
       - "443:443"
     volumes:
       -  /home/mitraillet/www:/var/www
+    links:
+      - dbWoddy
 
   dbWoddy:
     image: adrien97nini/wt_db:test
