@@ -11,7 +11,6 @@ WORKDIR /etc/asterisk
 
 VOLUME /etc/asterisk
 VOLUME /var/lib/asterisk/moh
-VOLUME /var/log/asterisk/
 
 EXPOSE 5060 5060/udp
 EXPOSE 16384/udp

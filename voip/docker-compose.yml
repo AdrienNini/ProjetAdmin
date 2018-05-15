@@ -26,4 +26,3 @@ services :
       - ./config/voicemail.conf:/etc/asterisk/voicemail.conf
       - ./config/iax.conf:/etc/asterisk/iax.conf
       - ./sounds:/var/lib/asterisk/moh
-      - ./logs/asterisk.log:/var/log/asterisk/messages
