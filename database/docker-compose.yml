@@ -5,6 +5,7 @@ services :
 
   webWoody:
     image: adrien97nini/wt_web:latest
+    container_name: webWoody
     networks:
       woody_net:
         ipv4_address: 172.18.0.23
@@ -13,9 +14,12 @@ services :
       - "443:443"
     volumes:
       -  /home/mitraillet/www:/var/www
+    links:
+      - dbWoody
 
-  dbWoddy:
-    image: adrien97nini/wt_db:test
+  dbWoody:
+    image: adrien97nini/wt_db:latest
+    container_name: dbWoody
     restart: always
     networks:
       woody_net:
