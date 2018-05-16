@@ -1,0 +1,73 @@
+﻿version : '2'
+
+services :
+
+  Directeur:
+    image: ubuntu:latest
+    container_name: Directeur
+    networks:
+      woody_Direction:
+      ipv4_address: 172.19.0.1
+  
+  Secretaire:  
+    image: ubuntu:latest
+    container_name: Secretaire
+    networks:
+      woody_Direction:
+      ipv4_address: 172.19.0.2
+
+  Comptable1:
+    image: ubuntu:latest
+    container_name: Comptable1
+    networks:
+      woody_Administration:
+      ipv4_address: 172.19.1.1
+  
+  Comptable2:  
+    image: ubuntu:latest
+    container_name: Comptable2
+    networks:
+      woody_Administration:
+      ipv4_address: 172.19.1.2
+      
+  Commercial1:
+    image: ubuntu:latest
+    container_name: Commercial1
+    networks:
+      woody_Administration:
+      ipv4_address: 172.19.2.2
+  
+  Commercial2:  
+    image: ubuntu:latest
+    container_name: Commercial2
+    networks:
+      woody_Administration:
+      ipv4_address: 172.19.2.3     
+      
+  Atelier:  
+    image: ubuntu:latest
+    container_name: Atelier
+    networks:
+      woody_Atelier:
+      ipv4_address: 172.19.3.1     
+      
+networks:
+  woody_Direction:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/24
+  woody_Administration:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.1.0/24
+        - subnet: 172.19.2.0/24
+  woody_Atelier:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.3.0/24
