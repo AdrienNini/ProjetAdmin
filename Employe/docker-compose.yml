@@ -21,35 +21,35 @@ services :
     container_name: Comptable1
     networks:
       woody_Administration:
-        ipv4_address: 172.19.1.1
+        ipv4_address: 172.19.0.129
   
   Comptable2:  
     image: ubuntu:latest
     container_name: Comptable2
     networks:
       woody_Administration:
-        ipv4_address: 172.19.1.2
+        ipv4_address: 172.19.0.130
       
   Commercial1:
     image: ubuntu:latest
     container_name: Commercial1
     networks:
       woody_Administration:
-        ipv4_address: 172.19.2.2
+        ipv4_address: 172.19.0.193
   
   Commercial2:  
     image: ubuntu:latest
     container_name: Commercial2
     networks:
       woody_Administration:
-        ipv4_address: 172.19.2.3     
+        ipv4_address: 172.19.0.194     
       
   Atelier:  
     image: ubuntu:latest
     container_name: Atelier
     networks:
       woody_Atelier:
-        ipv4_address: 172.19.3.1     
+        ipv4_address: 172.19.1.1     
       
 networks:
   woody_Direction:
@@ -57,17 +57,16 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.19.0.0/24
+        - subnet: 172.19.0.0/25
   woody_Administration:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.19.1.0/24
-        - subnet: 172.19.2.0/24
+        - subnet: 172.19.0.128/25
   woody_Atelier:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.19.3.0/24
+        - subnet: 172.19.1.0/24
