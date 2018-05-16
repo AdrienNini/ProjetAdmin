@@ -7,49 +7,49 @@ services :
     container_name: Directeur
     networks:
       woody_Direction:
-        ipv4_address: 172.19.0.1  
+        ipv4_address: 172.19.0.2
   
   Secretaire:  
     image: ubuntu:latest
     container_name: Secretaire
     networks:
       woody_Direction:
-        ipv4_address: 172.19.0.2
+        ipv4_address: 172.19.0.3
 
   Comptable1:
     image: ubuntu:latest
     container_name: Comptable1
     networks:
       woody_Administration:
-        ipv4_address: 172.19.0.129
+        ipv4_address: 172.19.0.130
   
   Comptable2:  
     image: ubuntu:latest
     container_name: Comptable2
     networks:
       woody_Administration:
-        ipv4_address: 172.19.0.130
+        ipv4_address: 172.19.0.131
       
   Commercial1:
     image: ubuntu:latest
     container_name: Commercial1
     networks:
       woody_Administration:
-        ipv4_address: 172.19.0.193
+        ipv4_address: 172.19.0.194
   
   Commercial2:  
     image: ubuntu:latest
     container_name: Commercial2
     networks:
       woody_Administration:
-        ipv4_address: 172.19.0.194     
+        ipv4_address: 172.19.0.195    
       
   Atelier:  
     image: ubuntu:latest
     container_name: Atelier
     networks:
       woody_Atelier:
-        ipv4_address: 172.19.1.1     
+        ipv4_address: 172.19.1.2
       
 networks:
   woody_Direction:
