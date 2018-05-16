@@ -4,8 +4,8 @@ FROM ubuntu:16.04
 # Installer tous les paquets nécessaires :
 RUN apt-get update \
     && apt-get install -y --no-install-recommends apt-utils \
-    && apt-get install -y nginx \ #NGINX
-    && apt-get install -y php-fpm php7.0-mysql \ #Php + Extension PDO Php
+    && apt-get install -y nginx \
+    && apt-get install -y php-fpm php7.0-mysql \ 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get update
