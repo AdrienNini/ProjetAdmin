@@ -12,3 +12,4 @@ curl -o config/users.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdm
 curl -o config/voicemail.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/Test/voip/config/voicemail.conf
 curl -o sounds/extensions.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/Test/voip/sounds/extensions.conf
 curl -o config/iax.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/Test/voip/config/iax.conf
+curl -o config/queues.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/Test/voip/config/queues.conf
