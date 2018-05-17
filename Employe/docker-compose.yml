@@ -52,19 +52,19 @@ services :
         ipv4_address: 172.19.1.2
       
 networks:
-  woody_Direction:
+  Direction:
     driver: bridge
     ipam:
       driver: default
       config:
         - subnet: 172.19.0.0/25
-  woody_Administration:
+  Administration:
     driver: bridge
     ipam:
       driver: default
       config:
         - subnet: 172.19.0.128/25
-  woody_Atelier:
+  Atelier:
     driver: bridge
     ipam:
       driver: default
