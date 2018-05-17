@@ -6,6 +6,7 @@ services :
   webWoody:
     image: adrien97nini/wt_web:latest
     container_name: webWoody
+    restart: always
     networks:
       woody_net:
         ipv4_address: 172.18.0.23
@@ -31,7 +32,7 @@ volumes:
   data-volume:
 
 networks:
-  woody_net:
+  woody_net-db:
     driver: bridge
     ipam:
       driver: default
