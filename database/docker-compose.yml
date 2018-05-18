@@ -21,7 +21,7 @@ services :
       - dbWoody
 
   dbWoody:
-    image: 014ee36692b7
+    image: adrien97nini/wt_db:latest
     container_name: dbWoody
     restart: always
     networks:
