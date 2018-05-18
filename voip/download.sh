@@ -2,7 +2,7 @@
 
 
 
-curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/Test/voip/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/voip/docker-compose.yml
 mkdir config
 mkdir sounds
 curl -o config/extensions.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/Test/voip/config/extensions.conf
