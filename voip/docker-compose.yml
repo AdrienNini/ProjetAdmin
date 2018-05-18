@@ -24,4 +24,6 @@ services :
       - ./config/sip.conf:/etc/asterisk/sip.conf
       - ./config/users.conf:/etc/asterisk/users.conf
       - ./config/voicemail.conf:/etc/asterisk/voicemail.conf
+      - ./config/iax.conf:/etc/asterisk/iax.conf
       - ./sounds:/var/lib/asterisk/moh
+      - ./config/queues.conf:/etc/asterisk/queues.conf
