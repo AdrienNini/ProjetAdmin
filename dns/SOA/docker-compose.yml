@@ -2,7 +2,7 @@ version : '2'
 
 services :
   soa:
-    image: adrien97nini/wt_soa:test
+    image: adrien97nini/wt_soa:latest
     container_name: soa
     ports:
       - "53:53/tcp"
