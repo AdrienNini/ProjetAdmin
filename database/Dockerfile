@@ -34,7 +34,7 @@ RUN /tmp/init_db
 EXPOSE 3306
 
 #To change configuration
-COPY files/mysqld.cnf /etc/mysql/mysql.conf.d/
+VOLUME /etc/mysql/mysql.conf.d/
 
 #We need to keep this
 ENTRYPOINT "/tmp/run_db"

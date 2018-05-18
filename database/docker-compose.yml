@@ -21,7 +21,7 @@ services :
       - dbWoody
 
   dbWoody:
-    image: adrien97nini/wt_db:latest
+    image: 014ee36692b7
     container_name: dbWoody
     restart: always
     networks:
@@ -29,6 +29,7 @@ services :
         ipv4_address: 172.18.0.131
     volumes:
       - data-volume:/var/lib/db
+      - ./files/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
 
 volumes:
   data-volume:
