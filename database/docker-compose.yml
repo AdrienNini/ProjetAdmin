@@ -8,7 +8,9 @@ services :
     container_name: webWoody
     restart: always
     networks:
-      woody_net:
+      webDb:
+        ipv4_address: 172.18.0.132
+      server:
         ipv4_address: 172.18.0.23
     ports:
       - "80:80"
@@ -19,12 +21,12 @@ services :
       - dbWoody
 
   dbWoody:
-    image: adrien97nini/wt_db:latest
+    image: 028783b0c94a
     container_name: dbWoody
     restart: always
     networks:
-      woody_net:
-        ipv4_address: 172.18.0.22
+      webDb:
+        ipv4_address: 172.18.0.131
     volumes:
       - data-volume:/var/lib/db
 
@@ -32,9 +34,17 @@ volumes:
   data-volume:
 
 networks:
-  woody_net-db:
+  server:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.18.0.0/24
+        - subnet: 172.18.0.0/25
+
+  webDb:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.128/29
+
