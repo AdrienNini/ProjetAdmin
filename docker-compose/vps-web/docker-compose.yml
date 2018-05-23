@@ -1,0 +1,16 @@
+version : '2'
+
+services :
+  soa:
+    image: adrien97nini/wt_soa:latest
+    container_name: soa
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./dns/named.conf:/etc/bind/named.conf
+      - ./dns/named.conf.options:/etc/bind/named.conf.options
+      - ./dns/named.conf.default-zones:/etc/bind/named.conf.default-zones
+      - ./dns/named.conf.local:/etc/bind/named.conf.local
+      - ./dns/db.wt1.ephec-ti.be:/etc/bind/db.wt1.ephec-ti.be
+      - ./dns/db.internal.wt1.ephec-ti.be:/etc/bind/db.internal.wt1.ephec-ti.be
