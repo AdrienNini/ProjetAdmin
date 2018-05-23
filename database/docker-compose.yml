@@ -29,7 +29,7 @@ services :
         ipv4_address: 172.18.0.131
     volumes:
       - data-volume:/var/lib/db
-      - ./files/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      - ./config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
 
 volumes:
   data-volume:
