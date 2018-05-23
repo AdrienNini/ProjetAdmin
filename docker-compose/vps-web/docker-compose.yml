@@ -4,6 +4,7 @@ services :
   soa:
     image: adrien97nini/wt_soa:latest
     container_name: soa
+    restart: always
     networks:
       server:
         ipv4_address: 172.18.0.22
