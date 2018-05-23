@@ -11,7 +11,7 @@ mkdir mail/config/opendkim;
 mkdir mail/config/opendkim/keys;
 mkdir mail/config/opendkim/keys/wt1.ephec-ti.be;
 curl -o mail/setup.sh https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/mail/setup.sh; chmod a+x ./mail/setup.sh
-curl -o mail/.env https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/mail/.env;
+curl -o .env https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/mail/.env;
 curl -o mail/config/chksum https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/mail/config/chksum;
 curl -o mail/config/postfix-accounts.cf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/mail/config/postfix-accounts.cf;
 curl -o mail/config/opendkim/KeyTable https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/mail/config/opendkim/KeyTable;
