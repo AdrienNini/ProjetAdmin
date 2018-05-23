@@ -41,7 +41,7 @@ services :
     volumes:
     - maildata:/var/mail
     - mailstate:/var/mail-state
-    - ./config/:/tmp/docker-mailserver/
+    - ./mail/config/:/tmp/docker-mailserver/
     environment:
     - DMS_DEBUG=${DMS_DEBUG}
     - ENABLE_CLAMAV=${ENABLE_CLAMAV}
