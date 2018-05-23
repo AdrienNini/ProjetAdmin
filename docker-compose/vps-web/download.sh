@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# COMPOSE
+
+curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/docker-compose/vps-web/docker-compose.yml;
+
 # DNS
 mkdir dns;
 curl -o dns/named.conf https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/dns/SOA/config/named.conf;
