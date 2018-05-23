@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# COMPOSE
+
+curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/docker-compose/vps-com/docker-compose.yml;
+
 # MAIL
 mkdir mail;
 mkdir mail/config;
