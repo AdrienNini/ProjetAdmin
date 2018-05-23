@@ -4,6 +4,9 @@ services :
   soa:
     image: adrien97nini/wt_soa:latest
     container_name: soa
+    networks:
+      server:
+        ipv4_address: 172.18.0.22
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -14,3 +17,49 @@ services :
       - ./dns/named.conf.local:/etc/bind/named.conf.local
       - ./dns/db.wt1.ephec-ti.be:/etc/bind/db.wt1.ephec-ti.be
       - ./dns/db.internal.wt1.ephec-ti.be:/etc/bind/db.internal.wt1.ephec-ti.be
+
+  webWoody:
+    image: adrien97nini/wt_web:latest
+    container_name: web
+    restart: always
+    networks:
+      webDb:
+        ipv4_address: 172.18.0.132
+      server:
+        ipv4_address: 172.18.0.23
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      -  /home/mitraillet/www:/var/www
+    links:
+      - dbWoody
+
+  dbWoody:
+    image: adrien97nini/wt_db:latest
+    container_name: db
+    restart: always
+    networks:
+      webDb:
+        ipv4_address: 172.18.0.131
+    volumes:
+      - data-volume:/var/lib/db
+      - ./config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+
+volumes:
+  data-volume:
+
+networks:
+  server:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/25
+
+  webDb:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.128/29
