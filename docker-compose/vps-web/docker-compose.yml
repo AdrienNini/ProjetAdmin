@@ -32,9 +32,9 @@ services :
       - "80:80"
       - "443:443"
     volumes:
-      -  /home/mitraillet/www:/var/www
+      -  /home/dev/www:/var/www
     links:
-      - dbWoody
+      - db
 
   db:
     image: adrien97nini/wt_db:latest
@@ -45,7 +45,7 @@ services :
         ipv4_address: 172.18.0.131
     volumes:
       - data-volume:/var/lib/db
-      - ./config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      - ./db/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
 
 volumes:
   data-volume:
