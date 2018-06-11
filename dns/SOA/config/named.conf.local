@@ -9,10 +9,6 @@ view internal {
     match-clients { internals; };
     recursion yes;
     allow-recursion { internals; };
-    forwarders {
-        8.8.8.8;
-        8.8.4.4;
-    };
     zone "wt1.ephec-ti.be" {
         type master;
         file "/etc/bind/db.internal.wt1.ephec-ti.be";
