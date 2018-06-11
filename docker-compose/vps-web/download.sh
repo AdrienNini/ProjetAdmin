@@ -1,5 +1,11 @@
 #! /bin/sh
 
+# Docker images
+
+docker pull adrien97nini/wt_soa:latest
+docker pull adrien97nini/wt_db:latest
+docker pull adrien97nini/wt_web:latest
+
 # COMPOSE
 
 curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/docker-compose/vps-web/docker-compose.yml;
