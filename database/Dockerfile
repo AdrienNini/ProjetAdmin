@@ -1,40 +1,34 @@
-# Download base image ubuntu 16.04
+# Téléchargement image de base ubuntu
 FROM ubuntu:16.04
 
-# Update Ubuntu Software repository and musql-server
+# Mise à jour du container
 RUN apt-get update
 
-#I njection of admin password
+#Injection du mot de passe admin
 RUN ["/bin/bash", "-c", "debconf-set-selections <<< 'mysql-server mysql-server/root_password password your_password'"]
 RUN ["/bin/bash", "-c", "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password your_password'"]
 
-#installation of mysql server
+#Installation de mysql
 RUN apt-get install -y \
     mysql-server
 
-# Launch and enable mySql.exe 
-# RUN service mysql start #Launch in init_db 
-
-# Copy the database schema to the /data directory
+# Copie les fichiers de la base de données de base
 ADD files/run_db files/init_db files/db_schema.sql files/db_basisinfo.sql /tmp/
 
-# init_db will create the default
-# database from db_schema.sql and db_basisinfo.sql, then
-# stop mysqld, and finally copy the /var/lib/mysql directory
-# to default_mysql_db.tar.gz
-# Modify mode to allow run_db and init_db to be execute 
+# Modifie les fichier pour leur donner le droit d'exécution 
 RUN chmod u+x /tmp/init_db && chmod u+x /tmp/run_db
 
-# run_db starts mysqld, but first it checks
-# to see if the /var/lib/mysql directory is empty, if
-# it is it is seeded with default_mysql_db.tar.gz before
-# the mysql is fired up
+
+# init_db crée la base de donnée par défaut
+# à partir de db_schema.sql et db_basisinfo.sql
+# Et lance le démon mysql
 RUN /tmp/init_db
 
+#Expose le port 3306
 EXPOSE 3306
 
-#To change configuration
+#Pour changer la configuration et rendre plus rapide la recherche 
 COPY files/mysqld.cnf /etc/mysql/mysql.conf.d/
 
-#We need to keep this
+#Quand le container se lance exécute le fichier run_db pour maintenir la base de donnée active
 ENTRYPOINT "/tmp/run_db"
