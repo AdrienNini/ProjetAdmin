@@ -1,5 +1,10 @@
 #! /bin/sh
 
+# Docker images
+
+docker pull tvial/docker-mailserver:latest
+docker pull adrien97nini/wt_voip:latest
+
 # COMPOSE
 
 curl -o docker-compose.yml https://raw.githubusercontent.com/AdrienNini/ProjetAdmin/master/docker-compose/vps-com/docker-compose.yml;
